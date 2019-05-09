@@ -1,0 +1,1044 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font: 15px/1.5 Arial, Helvetica, sans-serif;*/
+}
+.slidecontainer {
+    width: 150px;
+}
+.username{
+    position: relative;
+    float:right;
+    float:bottom;
+}
+/* Star rating */
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: black;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: black;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Style the body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+#kuva {
+    float: left;
+    alignment: top;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 4px;
+    max-width: 450px;
+    max-height: 450px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+/* Header */
+
+header {
+    color: #000;
+    width: 100%;
+    padding-top: 5px;
+    min-height: 70px;
+    border-bottom: #777 1px solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo {
+    flex-basis: 10%;
+}
+
+#logo a {
+    margin: auto;
+}
+
+#logo img {
+    height: 50px;
+}
+
+
+nav {
+    flex-basis: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.profile {
+    flex-basis: 10%;
+}
+
+.profile img {
+    height: 50px;
+}
+
+.dropdown-content a:hover, .linkkinap:hover {
+    color: red;
+}
+
+
+.linkki {
+    display: inline-block;
+}
+
+.linkki-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.linkki-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.linkki-content a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    display: block;
+}
+
+/*Sisältö*/
+
+.main {
+    width: 80%;
+    margin: auto;
+}
+
+.searchbar {
+    width: 70%;
+    margin: auto;
+    height: 3rem;
+    margin-top: 2rem;
+}
+
+.searchbar input[type=text] {
+    border: none;
+    font-size: 17px;
+    background-color: #d2d9dd;
+    width: 73%;
+    height: 100%;
+    float: left;
+    border-radius: 7px;
+}
+
+.searchbar button {
+    height: 100%;
+    width: 25%;
+    background: #d2d9dd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    float: right;
+    border-radius: 7px;
+}
+
+#retrts {
+    width: 100%;
+
+}
+
+.restcontainer {
+    background: #f4f7f8;
+    display: block;
+    height: 17rem;
+    margin: 20px;
+    padding: 20px 0 0 0;
+    position: relative;
+    border: #e5e5e5 solid 1px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px #8a97a0;
+}
+
+.restcontainer img {
+    height: 15rem;
+    width: 15rem;
+    margin-left: 5px;
+    display: inline-block;
+    position: absolute;
+}
+
+.restcontainer .review {
+    position: absolute;
+    left: 250px;
+    right: 0;
+    top: 0px;
+    bottom: 20px;
+    margin: 0 12px;
+    display: block;
+    overflow: hidden;
+}
+
+.restcontainer .nameof {
+    margin: 20px;
+    display: block;
+}
+
+.restcontainer .text {
+    margin: 10px;
+    display: block;
+}
+
+.restcontainer .revtext {
+    max-width: 750px;
+    display: inline-block;
+    position: static;
+}
+
+.restcontainer .info {
+    position: absolute;
+    left: 250px;
+    right: 0;
+    top: 170px;
+    height: 75px;
+    margin-left: 15px;
+    overflow: hidden;
+
+}
+
+
+.info img {
+    width: 15rem;
+    height: 4rem;
+}
+
+
+.pmain {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+}
+
+.profileInfo {
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    font-size: 70%;
+    background-color: #1abc9c;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.profileInfo img {
+
+    display: block;
+    border-radius: 50%;
+    height: 20rem;
+    width: 20rem;
+    padding: 20px;
+    margin: auto;
+}
+
+.pInfo {
+    color: #FFFFFF;
+}
+
+.feed {
+    -ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Mobiili */
+
+@media screen and (min-width: 800px) {
+    #logo {
+        padding: 0px;
+        margin-left: 20px;
+    }
+
+    .profile img {
+        float: right;
+        margin-right: 20px;
+    }
+
+    .linkkinap {
+        color: #000;
+        font-size: 16px;
+        font-size: 150%;
+        padding-right: 10px;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        height: auto;
+    }
+
+    .dropdown-content a {
+        font-size: 150%;
+        margin-right: 10px;
+    }
+
+    .dropbtn {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .main {
+        width: 95%;
+    }
+
+    .dropbtn img {
+        width: 50px;
+        float: left;
+        margin-left: 20px;
+    }
+
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        background-color: inherit;
+        font-family: inherit;
+
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: #fff;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 16px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: #000;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+    }
+
+    .linkkinap {
+        color: #000;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 60px;
+        padding-right: 60px;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+    }
+
+    .dropdown-content a:hover, .linkkinap:hover {
+        background-color: #f1f1f1;
+        color: red;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    #logo {
+        flex: 1;
+        order: 2;
+        display: flex;
+        margin-top: 5px;
+    }
+
+    #logo img {
+        margin: 0 auto;
+    }
+
+    nav {
+        flex: 1;
+        order: 1;
+    }
+
+    .profile {
+        flex: 1;
+        order: 3;
+        margin-top: 5px;
+    }
+
+    .profile img {
+        float: right;
+        margin-right: 20px;
+    }
+
+    .restcontainer {
+        height: auto;
+
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .restcontainer .info {
+        height: auto;
+        position: static;
+        left: 0;
+        right: 0;
+    }
+
+    .restcontainer.revrating {
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+
+    .restcontainer img {
+        width: 10rem;
+        height: 10rem;
+        display: inline-block;
+        position: static;
+        margin-left: 5px;
+    }
+
+    .restcontainer .info img {
+        width: 15rem;
+        height: 4rem;
+        display: block;
+    }
+    #Reviews .revrating {
+        float: none !important;
+    }
+    .restcontainer .review {
+        display: inline-block;
+        position: static;
+    }
+
+    .restcontainer .text {
+        display: inline-block;
+        position: static;
+    }
+
+    .restcontainer .info {
+        display: block;
+        position: static;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .restcontainer {
+        height: auto;
+        border: #e5e5e5 solid 1px;
+        box-shadow: 5px 5px 15px #8a97a0;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding: 0 0 5px 0;
+
+    }
+
+    .restcontainer .info {
+        height: auto;
+        font-size: 60%;
+    }
+
+    .restcontainer img {
+        width: 5rem;
+        height: 5rem;
+        display: inline-block;
+        position: static;
+        margin-left: 5px;
+    }
+
+    .restcontainer .info img {
+        width: 8rem;
+        height: 2rem;
+        display: block;
+    }
+
+    .restcontainer .review {
+        display: inline-block;
+        position: static;
+        font-size: 70%;
+        overflow: initial;
+        margin: 0;
+    }
+
+    .restcontainer .text {
+        display: inline-block;
+        position: static;
+    }
+
+    .restcontainer .info {
+        display: block;
+        position: static;
+    }
+}
+
+/*Katja -Restaurant Page*/
+
+.picture {
+
+    border: gray solid 0.5px;
+    height: 20rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    background-image: url("https://www.restaurantsofmanchester.com/photos/italian/vapiano-foodselection.jpg");
+    clear: both;
+}
+
+.restaurant-info {
+
+    /*border: gray solid 0.5px;*/
+    height: 5rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 0;
+    color: darkslategray;
+}
+
+
+.restaurant-name {
+
+
+    /*border: gray solid 0.5px;*/
+    height: 5rem;
+    width: 30%;
+    color: darkslategray;
+    font-family: "Palatino Linotype";
+    display: inline-block;
+
+}
+
+.restaurant-open {
+
+    /*border: gray solid 0.5px;*/
+    margin: auto;
+    height: 5rem;
+    width: 20%;
+    color: darkslategray;
+    font-family: "Palatino Linotype";
+    display: inline-block;
+
+}
+
+.rating {
+
+    /*border: gray solid 0.5px;*/
+    margin: auto;
+    height: 5rem;
+    width: 25%;
+    color: darkslategray;
+    font-family: "Palatino Linotype";
+    display: inline-block;
+}
+
+.uploadreview {
+    margin: auto;
+    float: right;
+    margin-top: 15px;
+    width: 20%;
+    display: inline-block;
+}
+
+
+.vote {
+
+    margin-left: 8rem;
+    margin-top: 1rem;
+    clear: both;
+}
+
+.grey {
+    color: grey;
+}
+
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    clear: both;
+
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-family: "Palatino Linotype";
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    /*border: 1px solid #ccc;*/
+    border-top: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+.typeOfFood {
+    border: gray solid 0.5px;
+    font-family: "Palatino Linotype";
+    background-color: #f1f1f1;
+    clear: both;
+}
+
+.meal-mean {
+    /*border: gray solid 0.5px;*/
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-family: "Palatino Linotype";
+    clear: both;
+}
+
+.meal-app {
+    /*border: gray solid 0.5px;*/
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-family: "Palatino Linotype";
+    clear: both;
+}
+
+.meal-des {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-family: "Palatino Linotype";
+    clear: both;
+}
+
+.meal-drinks {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-family: "Palatino Linotype";
+    clear: both;
+
+}
+
+.meal-image {
+    /*border: gray solid 0.5px;*/
+    float: left;
+    left: 0px;
+    width: 15%;
+    margin-bottom: 1rem;
+}
+
+.mealnd {
+    /*border: gray solid 0.5px;*/
+    float: left;
+    width: 60%;
+    margin-left: 1rem;
+    margin-top: 1px;
+}
+
+.price {
+    /*border: gray solid 0.5px;*/
+    float: right;
+    width: 10%;
+}
+
+#Reviews .revrating {
+    float: right;
+    width: 30%;
+    display: inline-block;
+
+}
+
+#Reviews .revrating img {
+    height: 4rem;
+    width: 14rem;
+}
+
+@media screen and (max-width: 860px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 17px;
+
+    }
+
+    h3 {
+        font-size: 14px;
+
+    }
+
+    h4 {
+        font-size: 10px;
+
+    }
+
+    .restaurant-info {
+
+        display: table;
+        float: none !important;
+        /*border: gray solid 0.5px;*/
+
+
+    }
+
+    .picture {
+        height: 10rem !important;
+    }
+
+    .restaurant-name {
+
+        float: none !important;
+        display: table-header-group;
+        height: 3rem !important;
+    }
+
+    .restaurant-open {
+
+        float: none !important;
+        display: table-row-group;
+        height: 3rem !important;
+    }
+
+    .rating {
+
+        float: none !important;
+        /*display: table-footer-group;*/
+        height: 3rem !important;
+
+    }
+
+    .uploadreview {
+
+
+        float: none !important;
+        display: table-footer-group;
+        height: 3rem !important;
+
+
+    }
+
+    .meal-image {
+        /*border: gray solid 0.5px;*/
+        float: none !important;
+        left: 0px;
+        width: 15%;
+        margin-bottom: 0rem !important;
+        margin-left: 30% !important;
+    }
+
+    .mealnd {
+        /*border: gray solid 0.5px;*/
+        float: none !important;
+        width: 100% !important;
+        margin-left: 0px !important;
+        margin-top: 0px !important;
+    }
+
+    .price {
+        /*border: gray solid 0.5px;*/
+        float: none !important;
+        width: 10%;
+        margin-left: 35% !important;
+    }
+
+}
+
+/*Katja -Restaurant Page*/
+
+#uploadform {
+    position: static;
+    max-width: 500px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    margin: 10px auto;
+    padding: 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#uploadform fieldset {
+    border: none;
+}
+#uploadform legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+#uploadform label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#uploadform input[type="text"],
+#uploadform input[type="number"],
+#uploadform textarea,
+#uploadform select {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background: rgba(255, 255, 255, .1);
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    margin: 0;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 30px;
+}
+
+#uploadform input[type="text"]:focus,
+#uploadform input[type="number"]:focus,
+#uploadform textarea:focus,
+#uploadform select:focus {
+    background: #d2d9dd;
+}
+
+#uploadform select {
+    -webkit-appearance: menulist-button;
+    height: 35px;
+}
+
+#uploadform .number {
+    background: #1abc9c;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 15px 15px 15px 0px;
+}
+
+#uploadform input[type="submit"]{
+    position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background: #1abc9c;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 100%;
+    border: solid #16a085;
+    border-width: 1px 1px 3px;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+}
+
+#uploadform input[type="submit"]:hover {
+    background: #109177;
+}
+
+#uploadform input[type="button"]{
+
+    position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background: indianred;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 100%;
+    border: solid indianred;
+    border-width: 1px 1px 3px;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+
+}
+#uploadform input[type="button"]:hover{
+    background: red;
+}
+
+/* Make original file upload tag hidden */
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Upload button */
+
+.uploadbutton {
+    position: relative;
+    display: block;
+    padding: 19px 50px 18px 20px;
+    color: #FFF;
+    background: #1abc9c;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 25px;
+    border: solid #16a085;
+    border-width: 1px 1px 3px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.uploadbutton:hover {
+    background: #109177;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#uploadform {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.overlaybutton {
+    height: 3rem;
+    width: 10rem;
+    top: -100px;
+    position: relative;
+    display: block;
+    color: #FFF;
+    background: #1abc9c;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border: solid #16a085;
+    border-width: 1px 1px 3px;
+    border-radius: 5px;
+}
+
+.overlaybutton:hover {
+    background: #109177;
+}
