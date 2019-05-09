@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>MenuSharing | Home</title>
+</head>
+<body>
+<header>
+    <div id="logo">
+        <a href="index.html"><img src="uploads/Logo.png" alt="Logo"></a>
+    </div>
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn"><img src="uploads/nav.png" alt="HamMenu">
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="index.html" class="linkki">Home</a>
+                <!--
+                <div class="linkki">
+                    <div class="linkkinap" class="linkki" onclick="myFunction()">Jotain2</div>
+                    <i class="fa fa-caret-down"></i>
+                    <div class="linkki-content" id="myDropdown">
+                        <a href="https://www.google.fi/">Linkki 1</a>
+                        <a href="https://www.google.fi/">Linkki 2</a>
+                        <a href="https://www.google.fi/">Linkki 3</a>
+                    </div>
+                </div>
+                -->
+                <a href="login.html" class="linkki">Login</a>
+            </div>
+        </div>
+    </nav>
+    <div class="profile">
+        <a href="profile.html"><img src="uploads/Profile.png" alt="Profile"></a>
+    </div>
+</header>
+<div class="main">
+    <div id="loginform">
+        <label ><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label ><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <label ><b>Confirm Password</b></label>
+        <input type="password" placeholder="Enter Password" name="repsw" required>
+
+        <button type="submit">Register</button>
+    </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
