@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MenuSharing | Restaurant</title>
+    <link rel="stylesheet" href="StyleSheet/style.css">
+</head>
+<body>
+<header>
+    <div id="logo">
+        <a href="index.html"><img src="Kuvat/Logo.png" alt="Logo"></a>
+    </div>
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn"><img src="Kuvat/nav.png" alt="HamMenu">
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="index.html" class="linkki">Home</a>
+                <a href="login.html" class="linkki">Log in</a>
+            </div>
+        </div>
+    </nav>
+    <div class="profile">
+        <a href="profile.html"><img src="Kuvat/Profile.png" alt="Profile"></a>
+    </div>
+</header>
+<div class="picture">
+</div>
+
+<div class="restaurant-info">
+
+
+
+    <ul id="resInfo">
+
+        <!-- restaurant info -->
+    </ul>
+
+
+
+
+
+    <div class="uploadreview">
+        <button class="overlaybutton" onclick="on()">Upload Review</button>
+        <div id="overlay">
+
+            <div id="uploadform">
+                <form action="/upload" id="mediaform">
+                    <fieldset>
+                        <legend><span class="number">1</span> Review</legend>
+                        <input type="text" name="field2" placeholder="Title">
+                        <textarea name="field3" placeholder="Review"></textarea>
+                        <input type="hidden" name="restaurantID" id="resList">
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5"/>
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4"/>
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3"/>
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2"/>
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1"/>
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+
+                        <label for="rating_value"></label><input type="number" name="star_value" id="rating_value"
+                                                                 disabled>
+
+                        <div class="star_value">
+                            <p></p>
+                        </div>
+
+
+                        <legend><span class="number">2</span> Photo upload</legend>
+                        <input type="file" id="file" accept="image/*" class="inputfile">
+                        <label for="file" class="uploadbutton">Add</label>
+                    </fieldset>
+                    <input type="submit" value="Upload"/>
+                    <input type="button" onclick="off()" value="Close"/>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<!--Tab-links-->
+
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Menu')" id="defaultOpen">Menu</button>
+    <button class="tablinks" onclick="openTab(event, 'Reviews')">Reviews</button>
+</div>
+
+
+
+<!-- Tab content -->
+
+<div id="Menu" class="tabcontent">
+
+    <div class="typeOfFood" id="mains">
+        <h2><span id="icon1">▷</span>Mains</h2>
+    </div>
+
+    <ul id="mainMeal">
+        <!-- Main meals appear here -->
+    </ul>
+
+
+
+    <div class="typeOfFood" id="appetizers">
+        <h2><span id="icon2">▷</span>Appetizers</h2>
+    </div>
+    <ul id="appetizerMeal">
+        <!-- Appetizer meals appear here -->
+    </ul>
+
+
+
+
+
+
+    <div class="typeOfFood" id="deserts">
+        <h2><span id="icon3">▷</span>Dessert</h2>
+    </div>
+
+    <ul id="dessertMeal">
+        <!-- Dessert meals appear here -->
+    </ul>
+
+
+
+
+    <div class="typeOfFood" id="drinks">
+        <h2><span id="icon4">▷</span>Drinks</h2>
+    </div>
+    <ul id="drinkMeal">
+        <!-- Drinks appear here -->
+    </ul>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- REVIEWS -->
+
+
+<div id="Reviews" class="tabcontent">
+    <h3>Reviews</h3>
+    <ul id="review">
+        <!-- reviews appear here -->
+    </ul>
+
+</div>
+</div>
+<script src="js/restaurant.js"></script>
+<script src="js/restaurantInfo.js"></script>
+<script src="js/mains.js"></script>
+<script src="js/appetizers.js"></script>
+<script src="js/desserts.js"></script>
+<script src="js/reviewsTest.js"></script>
+<script src="js/drinks.js"></script>
+
+
+
+</body>
+</html>
+
+
+</html>
+
