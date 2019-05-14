@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="StyleSheet/style.css">
+    <title>MenuSharing | Home</title>
+</head>
+<body>
+<header>
+    <div id="logo">
+        <a href="index.html"><img src="Kuvat/Logo.png" alt="Logo"></a>
+    </div>
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn"><img src="Kuvat/nav.png" alt="HamMenu">
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="index.html" class="linkki">Home</a>
+                <a href="login.html" class="linkki">Log in</a>
+            </div>
+        </div>
+    </nav>
+    <div class="profile">
+        <a href="profile.html"><img src="Kuvat/Profile.png" alt="Profile"></a>
+    </div>
+</header>
+<div class="main">
+    <form  name="loginForm" action="index.html" onsubmit="return validate(event)" method="post" id="loginform" >
+        <label ><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" >
+
+        <label ><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" >
+
+        <button type="submit" id="Submit" >Login</button>
+        <a href="Register.html">Sign Up</a>
+    </form>
+
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
