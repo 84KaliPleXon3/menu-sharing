@@ -6,3 +6,5 @@
 ![Screenshot](login.PNG)
 ![Screenshot](Register.PNG)
 ![Screenshot](upload_review.PNG)
+![Screenshot](menu_sharing_ER_model.jpg)
+
