@@ -1,9 +1,8 @@
 'use strict';
 const select = (connection, res) => {
-  // simple query
+  // simple database query for restaurant information
   connection.query(
 'SELECT *,DATE_FORMAT(open, "%H:%i") as openf,DATE_FORMAT(close, "%H:%i") as closef,restaurantType.restaurantTypeName FROM restaurant INNER JOIN restaurantType ON restaurant.restaurantTypeID=restaurantType.restaurantTypeID',
-     // 'SELECT *,DATE_FORMAT(open, "%H:%i") as openf,DATE_FORMAT(close, "%H:%i") as closef from restaurant',
       (err, results, fields) => {
          console.log(results); // results contains rows returned by server
         // console.log(fields); // fields contains extra meta data about results, if available
@@ -16,10 +15,9 @@ const select = (connection, res) => {
   );
 };
 
-//testing below...
+//testing...
 const selectMeals = (connection, res) => {
   // simple query
-
   connection.query(
 'SELECT * FROM meal',
       (err, results, fields) => {
@@ -109,6 +107,7 @@ const selectDrinks = (connection, res) => {
       },
   );
 };
+//end of food searches..
 
 
 const selectReviews = (connection, res) => {
