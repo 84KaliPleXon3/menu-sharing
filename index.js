@@ -16,16 +16,70 @@ const multer = require('multer');
 // tietokantayhteys
 const connection = db.connect();
 
-// simple query
-/*connection.query(
-    'SELECT * FROM animal',
-    (err, results, fields) => {
-//      console.log(err);
-      console.log(results); // results contains rows returned by server
-//      console.log(fields); // fields contains extra meta data about results, if available
-    }
-);
-*/
+
+//login
+
+passport.use(new Strategy(
+    (uname, psw, done) => {
+      console.log(`login? ${uname}`);
+      //Normally, select * from users where username=?',[uname],
+      connection.query(
+          'SELECT * FROM user WHERE userName = ? AND passwordHash = ?',
+          [uname, psw],
+          (err, results, fields) => {
+            console.log(results);
+            if (results.length === 0) {
+              console.log('login failed');
+              return done(null, false);
+            }
+            console.log('login ok');
+            return done(null, {name: username});
+          });
+    },
+));
+
+passport.serializeUser((user, done) => {
+  console.log('session serialize');
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  console.log('session deserialize');
+    
+    
+    
+  done(null, user);
+});
+
+app.use(require('serve-static')(__dirname + '/public'));
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({extended: true}));
+app.use(require('express-session')(
+    {secret: process.env.SEC, resave: true, saveUninitialized: true}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+console.log('Alive we ride');
+
+const sslkey = fs.readFileSync(process.env.KEY);
+const sslcert = fs.readFileSync(process.env.CERT);
+const options = {
+  key: sslkey,
+  cert: sslcert,
+};
+
+app.get('/', (req, res) => {
+  console.log(req);
+  if (req.secure) res.send('https :) and hello' + req.user.name);
+  else res.send('hello not secure?');
+});
+
+app.post('/login',
+    passport.authenticate('local', {failureRedirect: '/login'}),
+    (req, res) => {
+      res.redirect('/');
+});
+
 
 app.use(express.static('public'));
 app.use('/modules', express.static('node_modules'));
@@ -39,6 +93,8 @@ app.get('/all', (req, res) => {
   //console.log('');
   // res.send(200);
 });
+
+
 
 /* for testing...-------------------
 app.get('/meals', (req, res) => {
@@ -70,13 +126,12 @@ app.get('/desserts', (req, res) => {
   // res.send(200);
 });
 
-
-
 app.get('/drinks', (req, res) => {
   mediaTable.selectDrinks(connection, res);
   console.log('/meals');
   // res.send(200);
 });
+
 
 
 app.get('/reviews', (req, res) => {
@@ -109,102 +164,7 @@ app.use('/upload', (req, res, next) => {
 //Registration
 
 
-passport.use(new Strategy(
-    (uname, psw, done) => {
-      console.log(`login? ${uname}`);
-      //Normally, select * from users where username=?',[uname],
-      connection.query(
-          'SELECT * FROM user WHERE userName = ? AND passwordHash = ?',
-          [uname, psw],
-          (err, results, fields) => {
-            console.log(results);
-            if (results.length === 0) {
-              console.log('login failed');
-              return done(null, false);
-            }
-            console.log('login ok');
-            return done(null, {name: uname});
-          });
-    },
-));
-
-
-
-passport.use('Register',new Strategy(
-    (uname, psw, done) => {
-      console.log(`login? ${uname}`);
-      //Normally, select * from users where username=?',[uname],
-      connection.query(
-          'SELECT * FROM user WHERE userName = ?',
-          [uname],
-          (err, results, fields) => {
-            console.log(results);
-            if (results.length > 0) {
-              console.log('Use name already in use!');
-              return done(null, false);
-            }
-            console.log('registration ok');
-            connection.query(
-                'INSERT INTO user (userName,passwordHash, creationDate, accessLevelID) VALUES (?, ?, ?, ?);',
-                data, function(error, results, field) {
-                  console.log(results);
-                });
-            return done(null, {name: uname});
-          });
-    },
-
-));
-
-
-passport.serializeUser((user, done) => {
-  console.log('session serialize');
-  done(null, user);
-});
-
-passport.deserializeUser((user, done) => {
-  console.log('session deserialize');
-  done(null, user);
-});
-
-app.use(require('serve-static')(__dirname + '/public'));
-app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({extended: true}));
-app.use(require('express-session')(
-    {secret: process.env.SEC, resave: true, saveUninitialized: true}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-console.log('Alive we ride');
-
-const sslkey = fs.readFileSync(process.env.KEY);
-const sslcert = fs.readFileSync(process.env.CERT);
-const options = {
-  key: sslkey,
-  cert: sslcert,
-};
-
-
-app.get('/', (req, res) => {
-  console.log(req);
-  if (req.secure) res.send('https :) and hello' + req.user.name);
-  else res.send('hello not secure?');
-});
-
-
-app.post('/login',
-    passport.authenticate('local', {failureRedirect: '/app/login.html'}),
-    (req, res) => {
-      res.redirect('/');
-    });
-
-
-app.post('/Register',
-    passport.authenticate('Register', {failureRedirect: '/Register'}),
-    (req, res) => {
-      res.redirect('/login');
-    });
-
 
 app.listen(3000);
-
+ 
 
